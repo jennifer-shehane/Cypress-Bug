@@ -1,0 +1,1 @@
+export * from './create-vue-plugin-vuetify'

@@ -1,0 +1,62 @@
+{
+  "name": "@lmpm/wysiwyg",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build:ts": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.json",
+    "build:ts:watch": "yarn build:ts --watch",
+    "build:bundle": "dotenv -e .env -- vite build",
+    "build:bundle:watch": "yarn build:bundle -- --watch",
+    "build:clean": "rimraf ./dist",
+    "dev": "vite",
+    "build": "yarn build:clean && yarn build:ts && yarn build:bundle",
+    "build:watch": "yarn build:clean && yarn build:ts:watch & yarn build:bundle:watch",
+    "test": "yarn run test:unit",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest dev"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "6.5.1",
+    "@tiptap/extension-link": "^2.1.12",
+    "@tiptap/extension-placeholder": "^2.1.12",
+    "@tiptap/extension-table": "^2.1.12",
+    "@tiptap/extension-table-cell": "^2.1.12",
+    "@tiptap/extension-table-header": "^2.1.12",
+    "@tiptap/extension-table-row": "2.1.12",
+    "@tiptap/extension-text-align": "^2.1.12",
+    "@tiptap/extension-text-style": "2.1.12",
+    "@tiptap/pm": "^2.1.12",
+    "@tiptap/starter-kit": "^2.1.12",
+    "@tiptap/vue-3": "^2.1.12",
+    "tiptap-extension-font-size": "^1.2.0",
+    "vue": "^3.3.4",
+    "vuetify": "^3.3.23"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "2.4.3",
+    "vitest": "^0.34.6",
+    "dotenv-cli": "7.3.0",
+    "rimraf": "5.0.5",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/tsconfig": "^0.4.0",
+    "sass": "^1.69.5",
+    "vite": "^4.4.5",
+    "vite-plugin-vuetify": "^1.0.2",
+    "vue-tsc": "^1.8.10",
+    "typescript": "5.2.2",
+    "jsdom": "^17.0.0"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "module": "./dist/wysiwyg.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/wysiwyg.es.js"
+    },
+    "./style.css": "./dist/style.css"
+  }
+}
